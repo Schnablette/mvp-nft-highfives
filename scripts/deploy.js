@@ -7,12 +7,12 @@
 const hre = require("hardhat");
 
 async function main() {
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy();
+  const NftHighFives = await hre.ethers.getContractFactory("NftHighFives");
+  const nftHighFives = await NftHighFives.deploy();
 
-  await lock.deployed();
+  await nftHighFives.deployed();
 
-  console.log(`Lock deployed to ${lock.address}`);
+  console.log(`Lock deployed to ${nftHighFives.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

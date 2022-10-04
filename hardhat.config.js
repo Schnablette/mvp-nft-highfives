@@ -1,5 +1,3 @@
-const { ethers } = require("hardhat");
-
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 require("@nomicfoundation/hardhat-chai-matchers");
