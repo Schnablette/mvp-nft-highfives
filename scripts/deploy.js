@@ -12,7 +12,7 @@ async function main() {
 
   await nftHighFives.deployed();
 
-  console.log(`Lock deployed to ${nftHighFives.address}`);
+  console.log(`NFT High Fives deployed to: ${nftHighFives.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

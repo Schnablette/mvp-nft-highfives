@@ -13,53 +13,69 @@ contract NftHighFives {
 
     /// @dev mapping(tokenAddress => mapping(tokenId => mapping(receiver => Data)))
     mapping(IERC721 => mapping(uint256 => mapping(address => Data)))
-        public NFTs;
+        public nfts;
 
-    event interactionInitiated(
+    event InteractionInitiated(
         IERC721 indexed _token,
         uint256 indexed _tokenId,
         address indexed _partner
     );
 
-    event interactionReceived(
+    event InteractionReceived(
         IERC721 indexed _token,
         uint256 indexed _tokenId,
         address indexed _receiver
     );
 
-    event interactionRejected(
+    event InteractionRejected(
         IERC721 indexed _token,
         uint256 indexed _tokenId,
         address indexed _receiver
     );
-
-    constructor() {}
 
     function initiateHighFive(
         IERC721 _token,
         uint256 _tokenId,
         address _receiver
     ) external {
-        require(!NFTs[_token][_tokenId][_receiver].verified);
-        require(_token.ownerOf(_tokenId) == msg.sender);
-        NFTs[_token][_tokenId][_receiver].interactionPending = true;
+        require(
+            !nfts[_token][_tokenId][_receiver].verified,
+            "Already verified"
+        );
+        require(
+            _token.ownerOf(_tokenId) == msg.sender,
+            "NFT not owned by sender"
+        );
+        nfts[_token][_tokenId][_receiver].interactionPending = true;
 
-        emit interactionReceived(_token, _tokenId, _receiver);
+        emit InteractionInitiated(_token, _tokenId, _receiver);
     }
 
     function receiveHighFive(IERC721 _token, uint256 _tokenId) external {
-        require(!NFTs[_token][_tokenId][msg.sender].verified);
-        require(NFTs[_token][_tokenId][msg.sender].interactionPending == true);
-        NFTs[_token][_tokenId][msg.sender].verified = true;
+        require(
+            !nfts[_token][_tokenId][msg.sender].verified,
+            "Already Verified"
+        );
+        require(
+            nfts[_token][_tokenId][msg.sender].interactionPending == true,
+            "No request sent"
+        );
+        nfts[_token][_tokenId][msg.sender].verified = true;
 
-        emit interactionReceived(_token, _tokenId, msg.sender);
+        emit InteractionReceived(_token, _tokenId, msg.sender);
     }
 
     function rejectHighFive(IERC721 _token, uint256 _tokenId) external {
-        require(!NFTs[_token][_tokenId][msg.sender].verified);
-        require(NFTs[_token][_tokenId][msg.sender].interactionPending == true);
-        NFTs[_token][_tokenId][msg.sender].interactionPending = false;
+        require(
+            !nfts[_token][_tokenId][msg.sender].verified,
+            "Already Verified"
+        );
+        require(
+            nfts[_token][_tokenId][msg.sender].interactionPending == true,
+            "No request sent"
+        );
+        nfts[_token][_tokenId][msg.sender].interactionPending = false;
 
-        emit interactionRejected(_token, _tokenId, msg.sender);
+        emit InteractionRejected(_token, _tokenId, msg.sender);
     }
 }
