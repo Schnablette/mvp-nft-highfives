@@ -2,28 +2,50 @@
 pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract NftHighFives is Ownable {
+/// @title NFT High Fives
+/// @author Ann Schnabel
+contract NftHighFives {
     struct Data {
-        bool highFived;
+        bool verified;
         bool interactionPending;
     }
 
-    mapping(IERC721 => mapping(address => Data)) public NFTs;
+    /// @dev mapping(tokenAddress => mapping(tokenId => mapping(receiver => Data)))
+    mapping(IERC721 => mapping(uint256 => mapping(address => Data)))
+        public NFTs;
 
-    // event highFiveInitiated(address indexed _partner);
+    event interactionInitiated(
+        IERC721 indexed _token,
+        uint256 indexed _tokenId,
+        address indexed _partner
+    );
+
+    event interactionReceived(
+        IERC721 indexed _token,
+        uint256 indexed _tokenId,
+        address indexed _receiver
+    );
 
     constructor() {}
 
-    function initiateHighFive(IERC721 _token) external {
-        require(!NFTs[_token][msg.sender].highFived);
-        // require(ownerOf(_token))
-        NFTs[_token][msg.sender].interactionPending = true;
+    function initiateHighFive(
+        IERC721 _token,
+        uint256 _tokenId,
+        address _receiver
+    ) external {
+        require(!NFTs[_token][_tokenId][_receiver].verified);
+        require(_token.ownerOf(_tokenId) == msg.sender);
+        NFTs[_token][_tokenId][_receiver].interactionPending = true;
+
+        emit interactionReceived(_token, _tokenId, _receiver);
     }
 
-    function receiveHighFive(address _partner, bool _decision)
-        external
-        onlyOwner
-    {}
+    function receiveHighFive(IERC721 _token, uint256 _tokenId) external {
+        require(!NFTs[_token][_tokenId][msg.sender].verified);
+        require(NFTs[_token][_tokenId][msg.sender].interactionPending == true);
+        NFTs[_token][_tokenId][msg.sender].verified = true;
+
+        emit interactionReceived(_token, _tokenId, msg.sender);
+    }
 }
