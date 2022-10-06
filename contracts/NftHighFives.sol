@@ -27,6 +27,12 @@ contract NftHighFives {
         address indexed _receiver
     );
 
+    event interactionRejected(
+        IERC721 indexed _token,
+        uint256 indexed _tokenId,
+        address indexed _receiver
+    );
+
     constructor() {}
 
     function initiateHighFive(
@@ -47,5 +53,13 @@ contract NftHighFives {
         NFTs[_token][_tokenId][msg.sender].verified = true;
 
         emit interactionReceived(_token, _tokenId, msg.sender);
+    }
+
+    function rejectHighFive(IERC721 _token, uint256 _tokenId) external {
+        require(!NFTs[_token][_tokenId][msg.sender].verified);
+        require(NFTs[_token][_tokenId][msg.sender].interactionPending == true);
+        NFTs[_token][_tokenId][msg.sender].interactionPending = false;
+
+        emit interactionRejected(_token, _tokenId, msg.sender);
     }
 }
