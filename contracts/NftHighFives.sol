@@ -18,7 +18,7 @@ contract NftHighFives {
     event InteractionInitiated(
         IERC721 indexed _token,
         uint256 indexed _tokenId,
-        address indexed _partner
+        address indexed _receiver
     );
 
     event InteractionReceived(
@@ -45,6 +45,10 @@ contract NftHighFives {
         require(
             _token.ownerOf(_tokenId) == msg.sender,
             "NFT not owned by sender"
+        );
+        require(
+            !nfts[_token][_tokenId][_receiver].interactionPending,
+            "Already initiated"
         );
         nfts[_token][_tokenId][_receiver].interactionPending = true;
 
@@ -77,5 +81,16 @@ contract NftHighFives {
         nfts[_token][_tokenId][msg.sender].interactionPending = false;
 
         emit InteractionRejected(_token, _tokenId, msg.sender);
+    }
+
+    function readData(
+        IERC721 _token,
+        uint256 _tokenId,
+        address _receiver
+    ) public view returns (bool, bool) {
+        return (
+            nfts[_token][_tokenId][_receiver].verified,
+            nfts[_token][_tokenId][_receiver].interactionPending
+        );
     }
 }
