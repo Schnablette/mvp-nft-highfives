@@ -21,12 +21,17 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
+                "userdoc",
+                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -61,12 +66,17 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
+                "userdoc",
+                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -100,12 +110,17 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
+                "userdoc",
+                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -145,12 +160,17 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
+                "userdoc",
+                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -182,12 +202,17 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
+                "userdoc",
+                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -221,12 +246,17 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
+                "userdoc",
+                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -258,12 +288,17 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
+                "userdoc",
+                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -297,12 +332,17 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
+                "userdoc",
+                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -334,12 +374,17 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
+                "userdoc",
+                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -371,12 +416,17 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
+                "userdoc",
+                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -410,12 +460,17 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
+                "userdoc",
+                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -428,8 +483,8 @@
       ]
     },
     "/Users/annschnabel/code/mvp-nft-highfives/contracts/NftHighFives.sol": {
-      "lastModificationDate": 1665085673621,
-      "contentHash": "2e841800ab1c93b8045e71ddcf735a1e",
+      "lastModificationDate": 1665103011639,
+      "contentHash": "c71582f428d731b198b37c4de7f5b456",
       "sourceName": "contracts/NftHighFives.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -447,12 +502,17 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
+                "userdoc",
+                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },

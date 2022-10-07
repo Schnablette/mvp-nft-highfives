@@ -62,8 +62,56 @@ describe("NFT High Five Contract", function () {
     });
   });
 
+  describe("Reception", async function () {
+    it("Should change verified to true and pending to false", async function () {
+      await nftHighFives.initiateHighFive(nft.address, 0, addr1.address);
+      await nftHighFives.connect(addr1).receiveHighFive(nft.address, 0);
+      expect(await nftHighFives.readData(nft.address, 0, addr1.address)).to.eql(
+        [true, false]
+      );
+    });
+
+    it("Should not allow someone to receive if already verified", async function () {
+      await nftHighFives.initiateHighFive(nft.address, 0, addr1.address);
+      await nftHighFives.connect(addr1).receiveHighFive(nft.address, 0);
+      await expect(
+        nftHighFives.connect(addr1).receiveHighFive(nft.address, 0)
+      ).to.be.rejectedWith("Already verified");
+    });
+
+    it("Should not allow someone to receive if not pending", async function () {
+      await expect(
+        nftHighFives.connect(addr1).receiveHighFive(nft.address, 0)
+      ).to.be.rejectedWith("No request pending");
+    });
+  });
+
+  describe("Rejection", async function () {
+    it("Should change pending to false and keep verified false", async function () {
+      await nftHighFives.initiateHighFive(nft.address, 0, addr1.address);
+      await nftHighFives.connect(addr1).rejectHighFive(nft.address, 0);
+      expect(await nftHighFives.readData(nft.address, 0, addr1.address)).to.eql(
+        [false, false]
+      );
+    });
+
+    it("Should not allow someone to reject if already verified", async function () {
+      await nftHighFives.initiateHighFive(nft.address, 0, addr1.address);
+      await nftHighFives.connect(addr1).receiveHighFive(nft.address, 0);
+      await expect(
+        nftHighFives.connect(addr1).rejectHighFive(nft.address, 0)
+      ).to.be.rejectedWith("Already verified");
+    });
+
+    it("Should not allow someone to reject if not pending", async function () {
+      await expect(
+        nftHighFives.connect(addr1).rejectHighFive(nft.address, 0)
+      ).to.be.rejectedWith("No request pending");
+    });
+  });
+
   describe("Events", function () {
-    it("Should emit an event after high five initiation", async function () {
+    it("Should emit an event after high five initiated", async function () {
       expect(await nftHighFives.initiateHighFive(nft.address, 0, addr1.address))
         .to.emit(nftHighFives, "InteractionInitiated")
         .withArgs(nft.address, 0, addr1.address);
@@ -71,8 +119,15 @@ describe("NFT High Five Contract", function () {
 
     it("Should emit an event after high five received", async function () {
       await nftHighFives.initiateHighFive(nft.address, 0, addr1.address);
-      expect(await nftHighFives.connect(addr1).receiveHighFive(nft, 0))
+      expect(await nftHighFives.connect(addr1).receiveHighFive(nft.address, 0))
         .to.emit(nftHighFives, "InteractionReceived")
+        .withArgs(nft.address, 0, addr1.address);
+    });
+
+    it("Should emit an event after high five rejected", async function () {
+      await nftHighFives.initiateHighFive(nft.address, 0, addr1.address);
+      expect(await nftHighFives.connect(addr1).rejectHighFive(nft.address, 0))
+        .to.emit(nftHighFives, "InteractionRejected")
         .withArgs(nft.address, 0, addr1.address);
     });
   });

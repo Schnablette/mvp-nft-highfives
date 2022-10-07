@@ -58,13 +58,14 @@ contract NftHighFives {
     function receiveHighFive(IERC721 _token, uint256 _tokenId) external {
         require(
             !nfts[_token][_tokenId][msg.sender].verified,
-            "Already Verified"
+            "Already verified"
         );
         require(
             nfts[_token][_tokenId][msg.sender].interactionPending == true,
-            "No request sent"
+            "No request pending"
         );
         nfts[_token][_tokenId][msg.sender].verified = true;
+        nfts[_token][_tokenId][msg.sender].interactionPending = false;
 
         emit InteractionReceived(_token, _tokenId, msg.sender);
     }
@@ -72,11 +73,11 @@ contract NftHighFives {
     function rejectHighFive(IERC721 _token, uint256 _tokenId) external {
         require(
             !nfts[_token][_tokenId][msg.sender].verified,
-            "Already Verified"
+            "Already verified"
         );
         require(
             nfts[_token][_tokenId][msg.sender].interactionPending == true,
-            "No request sent"
+            "No request pending"
         );
         nfts[_token][_tokenId][msg.sender].interactionPending = false;
 
