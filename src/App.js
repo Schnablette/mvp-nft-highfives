@@ -8,7 +8,7 @@ import greenArm from "./pictures/green-arm.png";
 const App = () => {
   const [signer, setSigner] = useState();
   const [loading, setLoading] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false);
 
   const connectWallet = async () => {
     setLoading(true);
@@ -25,15 +25,23 @@ const App = () => {
   return (
     <div className="px-5 py-5 md:px-10">
       <Nav loading={loading} signer={signer} />
-      {modalOpen && <Modal />}
+      {modalOpen && <Modal setModalOpen={setModalOpen} />}
       <div className="sm:flex mt-20 justify-between max-w-[1137px] ">
         {/** Left Side */}
         <div className="sm:ml-10">
           <h1 className="mb-4">NFTs with a Past will Build the Future.</h1>
           {signer && !loading ? (
             <div className="flex">
-              <Button className="mr-4">Highfive Someone</Button>
-              <Button secondary>View Highfives</Button>
+              <Button
+                className="mr-4"
+                onClick={() => setModalOpen(true)}
+                disabled={modalOpen}
+              >
+                Highfive Someone
+              </Button>
+              <Button secondary disabled={modalOpen}>
+                View Highfives
+              </Button>
             </div>
           ) : (
             <Button
