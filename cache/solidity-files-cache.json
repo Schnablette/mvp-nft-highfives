@@ -2,7 +2,7 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/annschnabel/code/mvp-nft-highfives/contracts/NFT.sol": {
-      "lastModificationDate": 1664840470475,
+      "lastModificationDate": 1665188817298,
       "contentHash": "2eb32562da3272232418d6a17774ea7d",
       "sourceName": "contracts/NFT.sol",
       "solcConfig": {
@@ -21,17 +21,12 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
-                "userdoc",
-                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -47,7 +42,7 @@
       ]
     },
     "/Users/annschnabel/code/mvp-nft-highfives/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1664840359675,
+      "lastModificationDate": 1665188871787,
       "contentHash": "e436cea06129be2c73cda4b1acc848b5",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -66,17 +61,12 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
-                "userdoc",
-                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -91,7 +81,7 @@
       ]
     },
     "/Users/annschnabel/code/mvp-nft-highfives/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
-      "lastModificationDate": 1664840359666,
+      "lastModificationDate": 1665188871755,
       "contentHash": "79ff1a7eb801a525aa315fb7a679eede",
       "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
       "solcConfig": {
@@ -110,17 +100,12 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
-                "userdoc",
-                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -141,7 +126,7 @@
       ]
     },
     "/Users/annschnabel/code/mvp-nft-highfives/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1664840359659,
+      "lastModificationDate": 1665188871736,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -160,17 +145,12 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
-                "userdoc",
-                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -183,7 +163,7 @@
       ]
     },
     "/Users/annschnabel/code/mvp-nft-highfives/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
-      "lastModificationDate": 1664840359673,
+      "lastModificationDate": 1665188871776,
       "contentHash": "ec99d946db3685a3630554aa6055bd7f",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
       "solcConfig": {
@@ -202,17 +182,12 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
-                "userdoc",
-                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -227,7 +202,7 @@
       ]
     },
     "/Users/annschnabel/code/mvp-nft-highfives/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
-      "lastModificationDate": 1664840359673,
+      "lastModificationDate": 1665188871777,
       "contentHash": "c22d4395e33763de693fd440c6fd10e1",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
       "solcConfig": {
@@ -246,17 +221,12 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
-                "userdoc",
-                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -269,7 +239,7 @@
       ]
     },
     "/Users/annschnabel/code/mvp-nft-highfives/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
-      "lastModificationDate": 1664840359673,
+      "lastModificationDate": 1665188871776,
       "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
       "solcConfig": {
@@ -288,17 +258,12 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
-                "userdoc",
-                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -313,7 +278,7 @@
       ]
     },
     "/Users/annschnabel/code/mvp-nft-highfives/node_modules/@openzeppelin/contracts/utils/Address.sol": {
-      "lastModificationDate": 1664840359658,
+      "lastModificationDate": 1665188871725,
       "contentHash": "c476b3895a94798b88a4bb97399e6dfe",
       "sourceName": "@openzeppelin/contracts/utils/Address.sol",
       "solcConfig": {
@@ -332,17 +297,12 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
-                "userdoc",
-                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -355,7 +315,7 @@
       ]
     },
     "/Users/annschnabel/code/mvp-nft-highfives/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
-      "lastModificationDate": 1664840359677,
+      "lastModificationDate": 1665188871790,
       "contentHash": "cf46906c4035f51639a22265066a9e78",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
       "solcConfig": {
@@ -374,17 +334,12 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
-                "userdoc",
-                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -397,7 +352,7 @@
       ]
     },
     "/Users/annschnabel/code/mvp-nft-highfives/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
-      "lastModificationDate": 1664840359663,
+      "lastModificationDate": 1665188871747,
       "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
       "solcConfig": {
@@ -416,17 +371,12 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
-                "userdoc",
-                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -441,7 +391,7 @@
       ]
     },
     "/Users/annschnabel/code/mvp-nft-highfives/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
-      "lastModificationDate": 1664840359671,
+      "lastModificationDate": 1665188871774,
       "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
       "solcConfig": {
@@ -460,17 +410,12 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
-                "userdoc",
-                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -483,8 +428,8 @@
       ]
     },
     "/Users/annschnabel/code/mvp-nft-highfives/contracts/NftHighFives.sol": {
-      "lastModificationDate": 1665103011639,
-      "contentHash": "c71582f428d731b198b37c4de7f5b456",
+      "lastModificationDate": 1665606249911,
+      "contentHash": "8b68253ec43012750b5ee3f2bba13348",
       "sourceName": "contracts/NftHighFives.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -502,17 +447,12 @@
                 "evm.methodIdentifiers",
                 "metadata",
                 "devdoc",
-                "userdoc",
-                "devdoc",
                 "userdoc"
               ],
               "": [
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },

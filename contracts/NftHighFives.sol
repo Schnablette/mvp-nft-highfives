@@ -94,4 +94,8 @@ contract NftHighFives {
             nfts[_token][_tokenId][_receiver].interactionPending
         );
     }
+
+    fallback() external {
+        return;
+    }
 }

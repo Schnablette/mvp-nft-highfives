@@ -9,7 +9,7 @@ export const Nav = ({ loading, signer }) => {
       <a className="text-diamond-900 hover:text-diamond-700 font-semi" href="/">
         FrenFive
       </a>
-      <div className="border border-diamond-800 rounded-full py-1 px-2 text-[10px] ">
+      <div className="border border-diamond-800 rounded-full px-2 text-[10px] ">
         <span>{(!signer || loading) && "Not"} Connected</span>
       </div>
     </div>

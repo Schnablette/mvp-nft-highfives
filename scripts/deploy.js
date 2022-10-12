@@ -7,12 +7,17 @@
 const hre = require("hardhat");
 
 async function main() {
+  const deployer = hre.ethers.getSigner();
+
+  const NFT = await hre.ethers.getContractFactory("NFT");
+  const nft = await NFT.deploy();
+
+  console.log("NFT launched to: ", await nft.address);
+
   const NftHighFives = await hre.ethers.getContractFactory("NftHighFives");
   const nftHighFives = await NftHighFives.deploy();
 
-  await nftHighFives.deployed();
-
-  console.log(`NFT High Fives deployed to: ${nftHighFives.address}`);
+  console.log("NftHighfives launched to: ", await nftHighFives.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
