@@ -1,14 +1,17 @@
 import React from "react";
+import { ethers } from "ethers";
 
 import { Button } from "./Button";
 
-export const Nav = () => {
+export const Nav = ({ loading, signer }) => {
   return (
     <div className="flex justify-between items-center">
       <a className="text-diamond-900 hover:text-diamond-700 font-semi" href="/">
         FrenFive
       </a>
-      <Button>Connect Wallet</Button>
+      <div className="border border-diamond-800 rounded-full py-1 px-2 text-[10px] ">
+        <span>{(!signer || loading) && "Not"} Connected</span>
+      </div>
     </div>
   );
 };
