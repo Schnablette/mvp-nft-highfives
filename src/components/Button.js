@@ -19,7 +19,9 @@ export const Button = ({
       }`}
       {...rest}
     >
-      {loading ? (
+      {loading && secondary ? (
+        <>Loading...</>
+      ) : loading ? (
         <>
           <div class="loading"></div>
           <span className="p-6" />

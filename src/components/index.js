@@ -1,5 +1,7 @@
+export * from './BlankModal'
 export * from './Button'
 export * from './Input'
 export * from './InitiationModal'
 export * from './Nav'
+export * from './ReceptionModal'
 export * from './Tile'
