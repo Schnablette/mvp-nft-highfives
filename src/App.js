@@ -22,10 +22,6 @@ const App = () => {
   const [provider, setProvider] = useState();
   const [bannerMsg, setBannerMsg] = useState(false);
 
-  useEffect(() => {
-    console.log(events);
-  }, [events]);
-
   const connectWallet = async () => {
     setLoading(true);
     const newProvider = new ethers.providers.Web3Provider(window.ethereum);
