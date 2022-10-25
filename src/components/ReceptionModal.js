@@ -14,12 +14,9 @@ const validationSchema = Yup.object().shape({
     .required("Required")
     .test("len", "Must be exactly 42 characters", (val) => val?.length === 42),
   tokenId: Yup.number("Must be a number").required("Required"),
-  receiver: Yup.string()
-    .required("Required")
-    .test("len", "Must be exactly 42 characters", (val) => val?.length === 42),
 });
 
-export const ReceptionModal = ({ setModalOpen, signer }) => {
+export const ReceptionModal = ({ setBannerMsg, setModalOpen, signer }) => {
   const [rejectLoading, setRejectLoading] = useState(false);
   const [acceptLoading, setAcceptLoading] = useState(false);
   const [contract, setContract] = useState();
@@ -40,7 +37,7 @@ export const ReceptionModal = ({ setModalOpen, signer }) => {
     try {
       await contract.receiveHighFive(
         values.tokenContractAddress,
-        values.tokenId,
+        values.tokenId
       );
       setTimeout(() => {
         setAcceptLoading(false);
@@ -48,6 +45,8 @@ export const ReceptionModal = ({ setModalOpen, signer }) => {
       }, 1500);
     } catch (err) {
       console.log(err);
+      setBannerMsg(err.message.split("'")[1]);
+      setAcceptLoading(false);
     }
   };
 
@@ -56,7 +55,7 @@ export const ReceptionModal = ({ setModalOpen, signer }) => {
     try {
       await contract.rejectHighFive(
         values.tokenContractAddress,
-        values.tokenId,
+        values.tokenId
       );
       setTimeout(() => {
         setRejectLoading(false);
@@ -64,6 +63,8 @@ export const ReceptionModal = ({ setModalOpen, signer }) => {
       }, 1500);
     } catch (err) {
       console.log(err);
+      setBannerMsg(err.message.split("'")[1]);
+      setRejectLoading(false);
     }
   };
 
@@ -98,6 +99,7 @@ export const ReceptionModal = ({ setModalOpen, signer }) => {
           tokenId: "",
           receiver: "",
         }}
+        onSubmit={(values) => acceptHighfive(values)}
         validationSchema={validationSchema}
       >
         {(props) => (
@@ -116,7 +118,7 @@ export const ReceptionModal = ({ setModalOpen, signer }) => {
               </button>
               <div className="flex">
                 <Button
-                  className="block ml-2 disabled:hover:bg-white disabled:active:bg-white disabled:opacity-50 bg-white border border-red-500 hover:bg-red-300 active:bg-red-200 text-diamond-800"
+                  className="block ml-2 disabled:hover:bg-white disabled:active:bg-white disabled:bg-white disabled:opacity-50 bg-white border border-red-500 hover:bg-red-300 active:bg-red-200 text-diamond-800"
                   disabled={!props.isValid}
                   secondary
                   loading={rejectLoading}
@@ -128,7 +130,7 @@ export const ReceptionModal = ({ setModalOpen, signer }) => {
                   className="block ml-2 disabled:hover:bg-diamond-800 disabled:active:bg-diamond-800 disabled:opacity-50 "
                   disabled={!props.isValid}
                   loading={acceptLoading}
-                  onClick={(values) => acceptHighfive(values)}
+                  type="submit"
                 >
                   Accept Highfive
                 </Button>

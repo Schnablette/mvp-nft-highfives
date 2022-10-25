@@ -19,7 +19,7 @@ const validationSchema = Yup.object().shape({
     .test("len", "Must be exactly 42 characters", (val) => val?.length === 42),
 });
 
-export const InitiationModal = ({ setModalOpen, signer }) => {
+export const InitiationModal = ({ setBannerMsg, setModalOpen, signer }) => {
   const [loading, setLoading] = useState(false);
 
   const handleHighfive = async (values) => {
@@ -42,6 +42,8 @@ export const InitiationModal = ({ setModalOpen, signer }) => {
         }, 1500);
       } catch (err) {
         console.log(err);
+      setBannerMsg(err.message.split("'")[1]);
+      setLoading(false);
       }
     } else console.log("Not connected");
   };
